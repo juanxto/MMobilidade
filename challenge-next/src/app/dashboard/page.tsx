@@ -153,3 +153,32 @@ const aplicarFiltro = (falhasParaFiltrar?: any[]) => {
         return "bg-gray-100 text-gray-800";
     }
   };
+
+    // Abre o modal de detalhes, definindo a falha selecionada e seu status atual
+    const openDetailsModal = (falha: any) => {
+        setSelectedFalha(falha);
+        setModalStatus(falha.status || "Pendente");
+        setShowDetailsModal(true);
+      };
+      interface Falha {
+        id: string | number;
+        status: string; 
+        tipo: string; 
+        descricao: string; 
+        data: string; 
+        hora: string; 
+      }
+      
+      // Atualiza o status da falha e persiste a alteração
+      const updateFalhaStatus = () => {
+        if (selectedFalha) {
+          const updatedFalha = { ...selectedFalha, status: modalStatus };
+          const updatedFalhas = falhas.map((f) =>  
+            f.id === selectedFalha.id ? updatedFalha : f
+          );
+          setFalhas(updatedFalhas);
+          aplicarFiltro(updatedFalhas);
+          localStorage.setItem("falhas", JSON.stringify(updatedFalhas));
+          setSelectedFalha(updatedFalha);
+        }
+      };
