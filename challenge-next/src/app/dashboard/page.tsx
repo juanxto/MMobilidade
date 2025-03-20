@@ -115,3 +115,28 @@ const DashboardPage: React.FC = () => {
         return true;
     });
 };
+
+const aplicarFiltro = (falhasParaFiltrar?: any[]) => {
+    const falhasFiltradas = filtrarFalhas(falhasParaFiltrar);
+    setFilteredFalhas(falhasFiltradas);
+
+    const temFiltroAplicado = startDate || endDate || tipoFiltro !== "Todos";
+    setAppliedFilter(!!temFiltroAplicado);
+  };
+
+  const limparFiltros = () => {
+    setStartDate("");
+    setEndDate("");
+    setTipoFiltro("Todos");
+    setFilteredFalhas(falhas);
+    setAppliedFilter(false);
+  };
+
+  const filtrarPorTipo = (tipo: string) => {
+    setTipoFiltro(tipo);
+    const falhasFiltradas = filtrarFalhas(falhas, tipo);
+    setFilteredFalhas(falhasFiltradas);
+
+    const temFiltroAplicado = startDate || endDate || tipo !== "Todos";
+    setAppliedFilter(!!temFiltroAplicado);
+  };
