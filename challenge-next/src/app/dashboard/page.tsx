@@ -80,3 +80,38 @@ const DashboardPage: React.FC = () => {
       setShowAddModal(false);
     }
   };
+
+  const filtrarFalhas = (falhasParaFiltrar?: any[], tipoParam?: string) => {
+    const falhasToFilter = falhasParaFiltrar || falhas;
+    const tipoToUse = tipoParam !== undefined ? tipoParam : tipoFiltro;
+
+    let resultado = [...falhasToFilter];
+
+    if (tipoToUse !== "Todos") {
+        resultado = resultado.filter((falha) => falha.tipo === tipoToUse);
+    }
+
+    if (!startDate && !endDate) {
+        return resultado;
+    }
+
+    return resultado.filter((falha) => {
+        const falhaDate = new Date(falha.timestamp);
+
+        // Criar datas garantindo que não haja deslocamento de fuso horário
+        const dataInicio = startDate ? new Date(`${startDate}T00:00:00.000Z`) : null;
+        const dataFim = endDate ? new Date(`${endDate}T23:59:59.999Z`) : null;
+
+        if (dataInicio) dataInicio.setMinutes(dataInicio.getMinutes() + dataInicio.getTimezoneOffset());
+        if (dataFim) dataFim.setMinutes(dataFim.getMinutes() + dataFim.getTimezoneOffset());
+
+        if (dataInicio && dataFim) {
+            return falhaDate >= dataInicio && falhaDate <= dataFim;
+        } else if (dataInicio) {
+            return falhaDate >= dataInicio;
+        } else if (dataFim) {
+            return falhaDate <= dataFim;
+        }
+        return true;
+    });
+};
