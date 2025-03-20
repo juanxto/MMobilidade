@@ -28,7 +28,6 @@ const ReportsPage: React.FC = () => {
     software: 0,
     outro: 0,
   });
-  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
     if (!localStorage.getItem("auth")) {
@@ -117,6 +116,7 @@ const ReportsPage: React.FC = () => {
       if (isNaN(date.getTime())) return "";
 
       return date.toLocaleDateString("pt-BR");
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (e) {
       return "";
     }
@@ -191,6 +191,7 @@ const ReportsPage: React.FC = () => {
       <Header />
       <MobileMenu
         menuOpen={false}
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         setMenuOpen={function (open: boolean): void {
           throw new Error("Function not implemented.");
         }}
