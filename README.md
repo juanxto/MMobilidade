@@ -79,3 +79,14 @@ Visualize o protótipo no Figma: [Figma-Marmota-Mobilidade](https://www.figma.co
  
 ## 📹 Vídeo de Apresentação
 🎥 O vídeo do projeto pode ser acessado [neste link](https://www.youtube.com/watch?v=XxLYnHuRkbc)
+
+
+## 👥 Membros da Equipe
+| Nome         | RM       | Turma   |
+|-------------|---------|--------|
+| João Alves  | RM559369 | 1TDSPB |
+| Juan Coelho | RM560445 | 1TDSPB |
+| Matheus Mariotto    | RM560276 | 1TDSPB |
+ 
+## 📜 Licença
+Este projeto foi desenvolvido para fins acadêmicos e segue as diretrizes do curso.
