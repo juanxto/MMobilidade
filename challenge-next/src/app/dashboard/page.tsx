@@ -26,7 +26,7 @@ const DashboardPage: React.FC = () => {
   const [showDetailsModal, setShowDetailsModal] = useState<boolean>(false);
   const [modalStatus, setModalStatus] = useState<string>("Pendente");
 
-  seEffect(() => {
+  useEffect(() => {
     if (!localStorage.getItem("auth")) {
       router.push(routes.login);
     }
@@ -42,3 +42,41 @@ const DashboardPage: React.FC = () => {
       }
     }
   }, []);
+
+  const adicionarFalha = () => {
+    if (!description.trim()) {
+      alert("Por favor, adicione uma descrição para a falha");
+      return;
+    }
+
+    const dataAtual = new Date();
+    const dataFormatada = dataAtual.toLocaleDateString("pt-BR");
+    const horaFormatada = dataAtual.toLocaleTimeString("pt-BR");
+
+    // Gera automaticamente um ID usando Date.now()
+    const novaFalha = {
+      id: Date.now(),
+      tipo: tipoFalha,
+      descricao: description,
+      data: dataFormatada,
+      hora: horaFormatada,
+      timestamp: dataAtual.getTime(),
+      status: "Pendente",
+    };
+
+    const novasFalhas = [novaFalha, ...falhas];
+    setFalhas(novasFalhas);
+
+    if (!appliedFilter) {
+      setFilteredFalhas(novasFalhas);
+    } else {
+      aplicarFiltro(novasFalhas);
+    }
+
+    localStorage.setItem("falhas", JSON.stringify(novasFalhas));
+    setDescription("");
+
+    if (window.innerWidth < 768) {
+      setShowAddModal(false);
+    }
+  };
