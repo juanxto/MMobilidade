@@ -42,3 +42,40 @@ Este projeto foi desenvolvido como parte da Sprint 3, utilizando **Next.js** e *
 ✅ **Componentização** seguindo boas práticas.  
 ✅ **Uso do GitHub** para versionamento do código.  
  
+
+ ## 🔧 Como Rodar o Projeto
+ 
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/MMChallengeMM/Challenge-FrontEnd
+   ```
+ 
+2. Acesse a pasta do projeto:
+   ```bash
+   cd marmota-mobilidade
+   ```
+ 
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
+ 
+4. Rode o projeto:
+   ```bash
+   npm run dev
+   ```
+ 
+5. Acesse no navegador: [http://localhost:3000](http://localhost:3000)
+ 
+## Credenciais Implementadas
+Por se tratar de um sistema que não seria de acesso de ninguém fora de um sistema da CCR implementamos um login simples que seria determinado pela própria CCR para uso dos seus funcionarios. Atualmente as credenciais necessárias para acesso são:
+ 
+Usuário: admin
+ 
+Senha: password
+ 
+## 🔗 Acesso ao Protótipo
+Visualize o protótipo no Figma: [Figma-Marmota-Mobilidade](https://www.figma.com/design/RT1CQ4JFjZMSyyqfu6yGmy/Marmota-Mobilidade?node-id=0-1&p=f&t=VbG9F8SSmXtPC6re-0)
+ 
+## 📹 Vídeo de Apresentação
+🎥 O vídeo do projeto pode ser acessado [neste link](https://www.youtube.com/watch?v=XxLYnHuRkbc)
