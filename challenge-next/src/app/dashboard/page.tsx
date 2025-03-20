@@ -25,3 +25,20 @@ const DashboardPage: React.FC = () => {
   const [selectedFalha, setSelectedFalha] = useState<Falha | null>(null);
   const [showDetailsModal, setShowDetailsModal] = useState<boolean>(false);
   const [modalStatus, setModalStatus] = useState<string>("Pendente");
+
+  seEffect(() => {
+    if (!localStorage.getItem("auth")) {
+      router.push(routes.login);
+    }
+  }, [router]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const falhasSalvas = localStorage.getItem("falhas");
+      if (falhasSalvas) {
+        const parsedFalhas = JSON.parse(falhasSalvas);
+        setFalhas(parsedFalhas);
+        setFilteredFalhas(parsedFalhas);
+      }
+    }
+  }, []);
