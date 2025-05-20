@@ -74,7 +74,7 @@ export default function LoginPage() {
               <h2 className="font-display font-semibold text-2xl text-marmota-dark mb-6 text-center">
                 Acesso ao Sistema
               </h2>
-              <h3 classname="font-display font-semibold text-2xl text-marmota-dark mb-6 text-center">
+              <h3 className="font-display font-semibold text-2xl text-marmota-dark mb-6 text-center">
                 Usuário: admin
                 Senha: password
               </h3>
