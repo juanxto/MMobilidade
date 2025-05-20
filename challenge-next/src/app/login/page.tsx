@@ -74,6 +74,10 @@ export default function LoginPage() {
               <h2 className="font-display font-semibold text-2xl text-marmota-dark mb-6 text-center">
                 Acesso ao Sistema
               </h2>
+              <h3>
+                Usuário: admin
+                Senha: password
+              </h3>
 
               {error && (
                 <div className="mb-6 p-3 bg-red-50 border border-red-100 text-red-600 rounded-lg text-sm">
